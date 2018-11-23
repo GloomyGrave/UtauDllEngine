@@ -1,3 +1,7 @@
+## 配布地址
+
+https://github.com/740291272/UtauDllEngine/releases
+
 ## 使用说明：
 
 1. 将下载下来的文件复制进入UTAU安装文件夹，选择覆盖文件（请注意备份）
