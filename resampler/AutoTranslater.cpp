@@ -3,6 +3,9 @@
 #include <io.h>
 #include "MD5Code.h"
 
+#define HIBYTE(w) ((unsigned char)((wchar_t)(w) >> 8))
+#define LOBYTE(w) ((unsigned char) (w))
+
 char* getTempDir(char* inputWaveFile);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 用来利用CodePage转换编码
@@ -29,8 +32,7 @@ wchar_t* MB2WC(char* szAnsi,UINT ACP)
 	wszString[wcsLen]='\0';
 	return wszString;
 }
-#define HIBYTE(w) ((unsigned char)((wchar_t)(w) >> 8))
-#define LOBYTE(w) ((unsigned char) (w))
+
 void TransSimpleCodePage(char* sourcePath,char* destPath,UINT ACP)
 {
 	char* tempDir=getTempDir(sourcePath);
@@ -40,7 +42,7 @@ void TransSimpleCodePage(char* sourcePath,char* destPath,UINT ACP)
 	int filestrlen=wcslen(filep);
 	char* pw=(char*)malloc(sizeof(wchar_t)*filestrlen);
 	char* pi=pw;
-	for(int i=0;i<=wcslen(filep);i++)
+	for(int i=0;i <= wcslen(filep);i++)
 	{
 		int k=filep[i];
 		if(k>=0x0 && k<=0xFF)

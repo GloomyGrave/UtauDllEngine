@@ -57,7 +57,7 @@ namespace DLLSwiter
 
             if (!File.Exists(rootPath + "\\resampler.ini"))
             {
-                MessageBox.Show("配置文件未找到！", "警告" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("配置文件未找到，请检查UTAU目录下是否存在resampler.ini", "错误" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
                 return;
             }
@@ -178,7 +178,7 @@ namespace DLLSwiter
             if (!chd)
             {
                 sb.AppendLine("\r\n继续保存?");
-                if (MessageBox.Show(sb.ToString(), "错误", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                if (MessageBox.Show(sb.ToString(), "错误", MessageBoxButtons.YesNo ,MessageBoxIcon.Warning) != DialogResult.Yes)
                 {
                     return;
                 }
